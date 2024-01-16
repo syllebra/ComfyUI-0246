@@ -5,7 +5,6 @@ import importlib.util
 import pathlib
 import contextlib
 import os
-import torch
 import itertools
 import collections.abc
 import math
@@ -427,7 +426,7 @@ def beautify_structure(data, indent=0, mode=0, stop=False):
 		match mode:
 			case 1:
 				try:
-					if isinstance(data, str) or isinstance(data, torch.Tensor):
+					if isinstance(data, str):
 						raise TypeError("stub")
 					iterator = iter(data) # Try to get an iterator from data.
 					if hasattr(data, '__len__'):
